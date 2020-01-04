@@ -1,21 +1,20 @@
 import React from 'react';
 import './App.css';
 import Cart from './Components/Card'
-//import BgImg from './Img/img.jpg'
+import Button from 'react-bootstrap/Button'
+import CartData from './Data'
 
-/*
-var sectionStyle = {
-  width: "100%",
-  height: "400px",
-  backgroundImage: {BgImg}
-};
-*/
 
 function App() {
   return (
     <div >
-      <header className="App-header">
+      <header className="App-header"> 
         <Cart/>
+        <div >
+        <Button className="btn"  type="submit">
+          Suivant
+        </Button>
+        </div>
       </header>
     </div >
   );
