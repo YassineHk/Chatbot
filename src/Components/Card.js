@@ -1,27 +1,49 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
-import {Button,Form} from 'react-bootstrap'
+// import Card from 'react-bootstrap/Card'
+import { Button, Form } from 'react-bootstrap'
 import './Card.css';
+// import { FaBeer } from 'react-icons/fa';
+
 
 export default class Cart extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            Question: "Quelle est le nom de votre société ?",
+            Placeholder: "Nom de société",
+            Note: "Conformément au Registre du commerce"
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.props.ask.Question !== this.state.Question) {
+            this.setState({
+                Question: this.props.ask.Question,
+                Placeholder: this.props.ask.Placeholder,
+                Note: this.props.ask.Note
+            })
+        }
+    }
+
     render() {
         return (
-            <Card style={{width: "70%"}}>
-                <Card.Body className="Card" >
-                    <Form>
+                    <div className="divCart">
+                        <Form>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label style={{color: "#000000"}}>Quelle est le nom de votre société ?</Form.Label>
-                            <Form.Control type="text" placeholder="Nom de la société" />
+                            <label >{this.state.Question}</label>
                             <Form.Text className="text-muted">
-                                Conformément au Registre du commerce
+                            <input type="text" className="inputText" placeholder={this.state.Placeholder} />
                             </Form.Text>
+                            {/* <Form.Text className="text-muted">
+                                {this.state.Note}
+                            </Form.Text> */}
                         </Form.Group>
-                        <Button className="btn" variant="primary" type="submit">
+                        {/* <Button className="btn" variant="primary" type="submit">
                             Suivant
-                        </Button>
+                        </Button> */}
                     </Form>
-                </Card.Body>
-            </Card>
+                    </div>
         )
     }
 }
